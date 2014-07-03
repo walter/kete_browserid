@@ -3,7 +3,7 @@ en:
   account:
     login_form:
       generate_password: "Click Here"
-      or_standard_login: "Or use standard {{t.base.login}} {{t.base.form}}"
+      or_standard_login: "Use standard {{t.base.login}} {{t.base.form}}"
       register_via_browserid: "For those that are used to logging in our.anzasw.org using Persona"
       use_browserid: ""
       usually_use_browserid: "Do you usually use {{t.base.browserid}} to {{t.base.login}}? If so, you'll need to request a {{t.base.password}} (if you haven't already): {{generate_password_link}}."
