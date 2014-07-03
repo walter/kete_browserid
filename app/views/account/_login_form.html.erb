@@ -1,3 +1,21 @@
+<% if ::KeteBrowserid.supported?(request.user_agent) -%>
+  <fieldset>
+    <% unless ::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
+      <h3><%= t '.use_browserid' -%></h3>
+    <% end -%>
+
+    <p><%= t '.register_via_browserid',
+	   :register_link => link_for_register_via_browserid -%></p>
+    <h4><%= link_for_login_with_browserid -%></h4>
+
+    <% if ::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
+      <p><%= t '.usually_use_normal_login_1' -%></p>
+      <p><%= t '.usually_use_normal_login_2', :site_name => Kete.pretty_site_name -%></p>
+      <p><%= t '.usually_use_normal_login_3' -%></p>
+    <% end -%>
+  </fieldset>
+<% end -%>
+
 <% if !::KeteBrowserid.supported?(request.user_agent) || !::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
 <p>&nbsp;</p>
 <fieldset>
@@ -51,22 +69,4 @@
     <% end -%>
   <% end -%>
 </fieldset>
-<% end -%>
-
-<% if ::KeteBrowserid.supported?(request.user_agent) -%>
-  <fieldset>
-    <% unless ::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
-      <h3><%= t '.use_browserid' -%></h3>
-    <% end -%>
-
-    <p><%= t '.register_via_browserid',
-	   :register_link => link_for_register_via_browserid -%></p>
-    <h4><%= link_for_login_with_browserid -%></h4>
-
-    <% if ::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
-      <p><%= t '.usually_use_normal_login_1' -%></p>
-      <p><%= t '.usually_use_normal_login_2', :site_name => Kete.pretty_site_name -%></p>
-      <p><%= t '.usually_use_normal_login_3' -%></p>
-    <% end -%>
-  </fieldset>
 <% end -%>
